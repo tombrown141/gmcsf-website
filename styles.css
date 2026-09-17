@@ -228,13 +228,6 @@ strong {
   border: 2px solid var(--green);
 }
 
-.btn:hover,
-.btn:focus-visible {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--paper);
-}
-
 /* The mailer's whole job is to get a thumb onto this button. */
 .btn--large {
   display: block;
@@ -250,11 +243,29 @@ strong {
   padding: 0.6875rem var(--space-2);
 }
 
-/* On the green band the green button would disappear, so invert it. */
-.band--green .btn {
+/* Where the button sits on green or on paper, the green fill has too little
+   contrast with the band behind it to read as a button at all, so it goes
+   forest instead. These come before :hover so that hovering still wins. */
+.band--green .btn,
+.masthead .btn {
   background: var(--forest);
   border-color: var(--forest);
   color: var(--paper);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+/* The focus ring is drawn outside the button, on the band, so it has to
+   contrast with the band and not with the button. Everywhere else the
+   button's own text color happens to do that; on the paper masthead it
+   would be paper on paper. */
+.masthead .btn:focus-visible {
+  outline-color: var(--ink);
 }
 
 a {
@@ -281,13 +292,16 @@ a {
 
 /* 6. Masthead ------------------------------------------------------------- */
 
+/* Paper, so a green wordmark has something to read against. The rule at the
+   bottom is what separates it from the paper bands that scroll underneath —
+   a hard edge, no shadow. */
 .masthead {
   position: sticky;
   top: 0;
   z-index: 5;
-  background: var(--forest);
-  color: var(--paper);
-  border-bottom: 2px solid var(--green);
+  background: var(--paper);
+  color: var(--ink);
+  border-bottom: 2px solid var(--forest);
 }
 
 .masthead__inner {
@@ -405,10 +419,19 @@ a {
   margin: var(--space-4) calc(-1 * var(--space-3));
 }
 
+/* The photo is 4:3, which full bleed turns into most of a screen, and the
+   students sit in a band across the middle of the frame. Cropping to a
+   letterbox keeps the full bleed without the page disappearing behind it.
+   75% pushes the crop window down past the sky, keeping heads and feet in.
+   Delete the aspect-ratio, object-fit and object-position lines here and in
+   the 48em block to show the whole frame instead. */
 .photo img {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: center 75%;
 }
 
 .finalists {
@@ -579,6 +602,10 @@ a {
   .photo {
     margin-left: calc(-1 * var(--space-4));
     margin-right: calc(-1 * var(--space-4));
+  }
+
+  .photo img {
+    aspect-ratio: 12 / 5;
   }
 }
 
