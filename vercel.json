@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/give", "destination": "https://www.paypal.com/fundraiser/charity/1591128", "permanent": false }
+  ]
+}
