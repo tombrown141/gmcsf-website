@@ -23,14 +23,15 @@
 
 <header class="masthead">
   <div class="masthead__inner">
-    <!-- logo.svg is a true vector (viewBox 957.7 x 163.8, about 5.85:1, filled
-         in brand green #4CAF5F), so it stays sharp at any screen density and
-         needs no @2x file. Height drives its size; width follows the viewBox.
-         Note the artwork reads GREENMEADOW COMMUNITY ASSOCIATION, which is the
-         neighborhood association, not this fund — see the board about a
-         wordmark of the fund's own. -->
+    <!-- logo.png is 2058 x 484 (4.25:1), about twelve times the size it is
+         displayed at, so it is sharp on any screen. Height drives its size and
+         the width follows. It has no transparency — the artwork sits on a
+         solid white rectangle — so the CSS blends that white into the paper
+         behind it. A transparent export, or an SVG of this lockup, would be
+         better than the blend. (logo.svg is still in the repo but is the
+         community association's wordmark, a different organisation.) -->
     <a class="wordmark" href="/">
-      <img class="wordmark__logo" src="logo.svg"
+      <img class="wordmark__logo" src="logo.png" width="2058" height="484"
            alt="Greenmeadow Community Scholarship Fund">
     </a>
     <a class="btn btn--small" href="/give">Donate</a>

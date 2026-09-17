@@ -299,6 +299,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 5;
+  isolation: isolate;       /* keep the logo's blend off the page behind it */
   background: var(--paper);
   color: var(--ink);
   border-bottom: 2px solid var(--forest);
@@ -329,11 +330,15 @@ a {
    letterboxed rather than stretched. */
 .wordmark__logo {
   display: block;
-  height: 2rem;
+  height: 2.25rem;         /* a two-line lockup, so it needs a little more */
   width: auto;
   max-width: 100%;
   object-fit: contain;
   object-position: left center;
+  /* The file's white background multiplies away against the paper masthead.
+     This only works over a light band — on a dark one the white box would be
+     back. Replace it with a transparent logo and this line can go. */
+  mix-blend-mode: multiply;
 }
 
 /* Squeeze the logo before the button — the button is the point of the page. */
@@ -615,7 +620,7 @@ a {
   }
 
   .wordmark__logo {
-    height: 2.5rem;
+    height: 3rem;
   }
 
   .hero {
