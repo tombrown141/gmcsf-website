@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/give", "destination": "https://www.paypal.com/donate/?hosted_button_id=432CMSML8WSC6", "permanent": false }
+  ]
+}
