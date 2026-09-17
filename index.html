@@ -23,14 +23,12 @@
 
 <header class="masthead">
   <div class="masthead__inner">
-    <!-- Placeholder wordmark. Replace with the vector GREENMEADOW logo when it
-         arrives (see Open items in the handoff); the raster will not enlarge. -->
+    <!-- Drop the vector wordmark in at logo.svg. It sits on the dark forest
+         masthead, so it needs to read against #1F5730. Until the file exists
+         this header shows the alt text instead. -->
     <a class="wordmark" href="/">
-      <span class="wordmark__mark" aria-hidden="true"></span>
-      <span class="wordmark__text">
-        <span class="wordmark__name">Greenmeadow</span>
-        <span class="wordmark__sub">Community Scholarship Fund</span>
-      </span>
+      <img class="wordmark__logo" src="logo.svg"
+           alt="Greenmeadow Community Scholarship Fund">
     </a>
     <a class="btn btn--small" href="/give">Donate</a>
   </div>
@@ -44,6 +42,7 @@
       <h1 class="hero__head">Every June since 1964, this neighborhood has bet on somebody&rsquo;s kid.</h1>
       <p class="hero__lede">The Greenmeadow Community Scholarship Fund awards cash scholarships and reference books to graduating seniors from Greenmeadow and from Menlo-Atherton across town. It is run entirely by volunteers who live on these streets.</p>
       <p class="hero__cta"><a class="btn btn--large" href="/give">Donate</a></p>
+      <p class="fineprint hero__note">Processed securely by PayPal. Card or PayPal account.</p>
       <p class="fineprint">A 501(c)(3) nonprofit. Tax ID 23-7037165. Your gift may be tax deductible as allowed by law.</p>
     </div>
   </section>
@@ -78,8 +77,14 @@
     <div class="wrap">
       <h2 id="finalists" class="section__head section__head--title">Three from the class of 2026</h2>
 
-      <!-- The 2026 finalists group photo from Greenmeadow Park belongs here, once
-           family permission is confirmed (see Open items in the handoff). -->
+      <!-- Drop the group shot in at finalists-2026.jpg, once family permission
+           is confirmed. Check the alt text against the actual photograph, and
+           add width and height attributes in the real pixel dimensions so the
+           page does not jump while the image loads. -->
+      <figure class="photo">
+        <img src="finalists-2026.jpg"
+             alt="The 2026 finalists together in Greenmeadow Park.">
+      </figure>
 
       <div class="finalists">
         <article class="finalist">

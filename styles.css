@@ -308,36 +308,11 @@ a {
   color: inherit;
 }
 
-/* Stand-in for the vector wordmark: a plain green square. */
-.wordmark__mark {
-  width: 1.5rem;
-  height: 1.5rem;
-  background: var(--green);
-  flex: none;
-}
-
-.wordmark__text {
-  display: block;
-  font-family: var(--display);
-  line-height: 1.1;
-}
-
-.wordmark__name {
-  display: block;
-  font-weight: 600;
-  font-size: 1.0625rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.wordmark__sub {
-  display: none;            /* too long for a phone header; returns at 48em */
-  font-size: 0.6875rem;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--paper);
-  opacity: 0.8;
+/* The vector wordmark. Height is what controls its size — the file's own
+   width follows. Raise these two numbers if the logo reads small. */
+.wordmark__logo {
+  height: 2rem;
+  width: auto;
 }
 
 
@@ -364,6 +339,11 @@ a {
 
 .hero__cta {
   max-width: 24rem;
+  margin-bottom: var(--space-2);
+}
+
+/* Reassurance line, tucked under the button and ahead of the tax ID. */
+.hero__note {
   margin-bottom: var(--space-3);
 }
 
@@ -405,6 +385,15 @@ a {
 }
 
 /* Three from the class of 2026 */
+.photo {
+  margin: var(--space-4) 0 0;
+}
+
+.photo img {
+  width: 100%;
+  height: auto;
+}
+
 .finalists {
   margin-top: var(--space-4);
   display: grid;
@@ -561,8 +550,8 @@ a {
     font-size: 1.125rem;
   }
 
-  .wordmark__sub {
-    display: block;
+  .wordmark__logo {
+    height: 2.5rem;
   }
 
   .hero {
