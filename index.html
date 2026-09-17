@@ -76,16 +76,18 @@
   <section class="band band--paper" aria-labelledby="finalists">
     <div class="wrap">
       <h2 id="finalists" class="section__head section__head--title">Three from the class of 2026</h2>
+    </div>
 
-      <!-- Drop the group shot in at finalists-2026.jpg, once family permission
-           is confirmed. Check the alt text against the actual photograph, and
-           add width and height attributes in the real pixel dimensions so the
-           page does not jump while the image loads. -->
-      <figure class="photo">
-        <img src="finalists-2026.jpg"
-             alt="The 2026 finalists together in Greenmeadow Park.">
-      </figure>
+    <!-- Full bleed, so it sits outside .wrap and reaches both edges of the
+         screen. Add width and height attributes in the file's real pixel
+         dimensions to stop the page jumping as it loads, and check the alt
+         text below against the actual photograph. -->
+    <figure class="photo">
+      <img src="finalists-2026.jpg"
+           alt="The 2026 finalists together in Greenmeadow Park.">
+    </figure>
 
+    <div class="wrap">
       <div class="finalists">
         <article class="finalist">
           <h3 class="finalist__name">Jack Spitzer</h3>
@@ -190,8 +192,12 @@
       <h2 id="involved" class="section__head section__head--title">Get involved</h2>
       <p>The board looks for neighbors willing to read applications, interview finalists, and help run the April reception. It is a few evenings between January and April. If that sounds like something you would enjoy, get in touch.</p>
       <!-- info@greenmeadowsf.org is not live yet. Set up the forwarder before
-           launch (see Open items in the handoff) or swap in a working address. -->
-      <p><a class="link-arrow" href="mailto:info@greenmeadowsf.org">info@greenmeadowsf.org</a></p>
+           launch (see Open items in the handoff) or swap in a working address.
+           The address appears twice on purpose: as plain text anyone can read
+           off the screen or copy, and as a mailto link for whoever has a mail
+           client wired up. Keep both in step if it ever changes. -->
+      <p class="contact"><span class="contact__address">info@greenmeadowsf.org</span></p>
+      <p><a class="link-arrow" href="mailto:info@greenmeadowsf.org">Open in your email app</a></p>
     </div>
   </section>
 

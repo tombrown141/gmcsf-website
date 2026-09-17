@@ -303,16 +303,28 @@ a {
 .wordmark {
   display: flex;
   align-items: center;
-  gap: 0.625rem;
+  min-width: 0;             /* may shrink if the logo is very wide */
   text-decoration: none;
   color: inherit;
 }
 
-/* The vector wordmark. Height is what controls its size — the file's own
-   width follows. Raise these two numbers if the logo reads small. */
+/* The vector wordmark. Height is what controls its size and width follows
+   from the file's own proportions, so the aspect ratio is always the
+   artwork's. Raise the two heights if the logo reads small. object-fit is
+   insurance: if a very wide logo ever gets squeezed by the header, it is
+   letterboxed rather than stretched. */
 .wordmark__logo {
+  display: block;
   height: 2rem;
   width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* Squeeze the logo before the button — the button is the point of the page. */
+.masthead__inner .btn {
+  flex: none;
 }
 
 
@@ -385,11 +397,16 @@ a {
 }
 
 /* Three from the class of 2026 */
+/* Full bleed. The figure sits outside .wrap, so cancelling the band's side
+   padding takes it to both edges of the screen. Hard edges, no frame, no
+   caption — the write-ups underneath do that job. The negative margins must
+   stay in step with the band padding, here and in the 34em block below. */
 .photo {
-  margin: var(--space-4) 0 0;
+  margin: var(--space-4) calc(-1 * var(--space-3));
 }
 
 .photo img {
+  display: block;
   width: 100%;
   height: auto;
 }
@@ -473,6 +490,21 @@ a {
   line-height: 1.5;
 }
 
+/* Get involved. mailto often does nothing on a phone, so the address is
+   plain text first and a link second. user-select: all makes one tap or
+   click take the whole address, ready to paste. */
+.contact {
+  margin-bottom: var(--space-2);
+}
+
+.contact__address {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.125rem;
+  -webkit-user-select: all;
+  user-select: all;
+}
+
 /* Who runs this */
 .board {
   list-style: none;
@@ -542,6 +574,11 @@ a {
 
   .band {
     padding: var(--space-6) var(--space-4);
+  }
+
+  .photo {
+    margin-left: calc(-1 * var(--space-4));
+    margin-right: calc(-1 * var(--space-4));
   }
 }
 
