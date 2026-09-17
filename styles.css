@@ -445,22 +445,26 @@ a {
   gap: var(--space-4);
 }
 
+/* One sentence each, under a heavy rule. The name carries the display face
+   so it stays scannable inside the sentence. */
 .finalist {
   border-top: var(--rule) solid var(--forest);
   padding-top: var(--space-2);
+  max-width: none;
+  font-size: 1rem;
+  margin-bottom: 0;
 }
 
-.finalist__name {
-  font-size: 1.25rem;
+.finalist strong {
+  font-family: var(--display);
+  font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: var(--forest);
-  margin-bottom: var(--space-2);
 }
 
-.finalist p {
-  max-width: none;
-  font-size: 1rem;
+.finalists-more {
+  margin-top: var(--space-4);
 }
 
 /* Ways to give */
@@ -565,6 +569,62 @@ a {
 }
 
 
+/* Second pages (the finalists page) ---------------------------------------
+   Same bands and tokens as the home page; only the headline scale differs,
+   because these headings are shorter than the hero's.                       */
+
+.page__head {
+  font-size: clamp(1.75rem, 6vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  max-width: 22ch;
+}
+
+.page__lede {
+  font-size: 1.125rem;
+  max-width: var(--measure);
+}
+
+.page__cta {
+  max-width: 24rem;
+  margin-top: var(--space-4);
+}
+
+/* Obviously provisional, so nobody mistakes it for finished copy. */
+.placeholder {
+  margin-top: var(--space-4);
+  padding: var(--space-3);
+  border: 2px dashed var(--forest);
+  font-style: italic;
+  max-width: var(--measure);
+}
+
+/* One block per finalist. Works for three or for fifteen. */
+.profiles {
+  margin-top: var(--space-4);
+  display: grid;
+  gap: var(--space-4);
+}
+
+.profile {
+  border-top: var(--rule) solid var(--forest);
+  padding-top: var(--space-2);
+}
+
+.profile__name {
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--forest);
+  margin-bottom: var(--space-2);
+}
+
+.profile p {
+  max-width: none;
+  font-size: 1rem;
+}
+
+
 /* 9. Footer --------------------------------------------------------------- */
 
 .footer {
@@ -643,6 +703,11 @@ a {
 }
 
 @media (min-width: 64em) {
+  .profiles {
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--space-5);
+  }
+
   .finalists {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-4);
@@ -657,4 +722,16 @@ a {
   html {
     scroll-behavior: auto;
   }
+}
+
+
+/* 10. Not published yet ----------------------------------------------------
+   The finalists page exists and is deployed, but the home page does not link
+   to it while the profiles are still a placeholder and the students have not
+   given permission.
+
+   TO PUBLISH THE LINK: delete this rule. That is the whole change.           */
+
+.finalists-more {
+  display: none;
 }
