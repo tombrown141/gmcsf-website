@@ -156,16 +156,10 @@ strong {
   border-left-color: var(--forest);
 }
 
-.fineprint,
-.note {
+.fineprint {
   font-size: 0.875rem;
   line-height: 1.5;
   opacity: 0.85;
-}
-
-.note {
-  font-style: italic;
-  margin-top: var(--space-4);
 }
 
 
@@ -416,9 +410,24 @@ a {
 }
 
 /* The finalists from the class of 2026 */
+
+/* Subtitle over the three teasers. Sentence case in the display face so it
+   does not compete with the uppercase names inside the teasers themselves. */
+.finalists__intro {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--forest);
+  margin: var(--space-4) 0 0;
+}
+
+.finalists__intro + .finalists {
+  margin-top: var(--space-2);
+}
+
 /* Full bleed. The figure sits outside .wrap, so cancelling the band's side
    padding takes it to both edges of the screen. Hard edges, no frame, no
-   caption — the write-ups underneath do that job. The negative margins must
+   caption — the teasers underneath do that job. The negative margins must
    stay in step with the band padding, here and in the 34em block below. */
 .photo {
   margin: var(--space-4) calc(-1 * var(--space-3));
