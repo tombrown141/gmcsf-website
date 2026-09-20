@@ -266,21 +266,26 @@ a {
   color: inherit;
 }
 
+/* A real underline rather than a bottom border, so every line of a link that
+   wraps is underlined, and in the text's own color, so it reads as a link on
+   any band — green would all but vanish against paper. */
 .link-arrow {
   font-family: var(--display);
   font-weight: 600;
   font-size: 1.125rem;
-  text-decoration: none;
-  border-bottom: 3px solid var(--green);
-  padding-bottom: 2px;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.3em;
 }
 
+/* Non-breaking space, so the arrow never drops to a line of its own. */
 .link-arrow::after {
-  content: " \2192";       /* → */
+  content: "\00A0\2192";   /* → */
 }
 
-.link-arrow:hover {
-  border-bottom-color: currentColor;
+.link-arrow:hover,
+.link-arrow:focus-visible {
+  text-decoration-color: var(--green);
 }
 
 
@@ -411,20 +416,6 @@ a {
 
 /* The finalists from the class of 2026 */
 
-/* Subtitle over the three teasers. Sentence case in the display face so it
-   does not compete with the uppercase names inside the teasers themselves. */
-.finalists__intro {
-  font-size: 1.125rem;
-  font-weight: 600;
-  letter-spacing: 0;
-  color: var(--forest);
-  margin: var(--space-4) 0 0;
-}
-
-.finalists__intro + .finalists {
-  margin-top: var(--space-2);
-}
-
 /* Full bleed. The figure sits outside .wrap, so cancelling the band's side
    padding takes it to both edges of the screen. Hard edges, no frame, no
    caption — the teasers underneath do that job. The negative margins must
@@ -472,8 +463,13 @@ a {
   color: var(--forest);
 }
 
+/* Clear of the teasers above it: on a phone they stack, so it needs the gap
+   to read as the section's next step rather than a fourth teaser. */
 .finalists-more {
-  margin-top: var(--space-4);
+  max-width: none;          /* the rule spans the columns, not the measure */
+  margin-top: var(--space-5);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--forest);
 }
 
 /* Ways to give */
@@ -733,14 +729,3 @@ a {
   }
 }
 
-
-/* 10. Not published yet ----------------------------------------------------
-   The finalists page exists and is deployed, but the home page does not link
-   to it while the profiles are still a placeholder and the students have not
-   given permission.
-
-   TO PUBLISH THE LINK: delete this rule. That is the whole change.           */
-
-.finalists-more {
-  display: none;
-}
