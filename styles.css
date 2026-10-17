@@ -266,23 +266,6 @@ a {
   color: inherit;
 }
 
-.link-arrow {
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 1.125rem;
-  text-decoration: none;
-  border-bottom: 3px solid var(--green);
-  padding-bottom: 2px;
-}
-
-.link-arrow::after {
-  content: " \2192";       /* → */
-}
-
-.link-arrow:hover {
-  border-bottom-color: currentColor;
-}
-
 
 /* 6. Masthead ------------------------------------------------------------- */
 
@@ -527,19 +510,24 @@ a {
   line-height: 1.5;
 }
 
-/* Get involved. mailto often does nothing on a phone, so the address is
-   plain text first and a link second. user-select: all makes one tap or
-   click take the whole address, ready to paste. */
-.contact {
-  margin-bottom: var(--space-2);
-}
-
+/* Get involved. A mailto does nothing where no mail client is registered,
+   which is common on a desktop, so the address is its own link text: it
+   opens a message where that works, and is readable and selectable where it
+   does not. Underlined in the text's own color — green would be 2.46:1
+   against paper. */
 .contact__address {
   font-family: var(--display);
   font-weight: 600;
   font-size: 1.125rem;
-  -webkit-user-select: all;
-  user-select: all;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.3em;
+  overflow-wrap: anywhere;  /* in case a longer address replaces this one */
+}
+
+.contact__address:hover,
+.contact__address:focus-visible {
+  text-decoration-color: var(--green);
 }
 
 /* Who runs this */
